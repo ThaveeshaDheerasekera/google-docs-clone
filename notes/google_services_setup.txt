@@ -1,0 +1,37 @@
+--- Steps: ----------------
+1. Go to pub.dev and select the library called [google_sign_in] by flutter.dev. Install the package and go to the link called [Google Cloud Platform API manager]. 
+2. Create a new project.
+3. Go to Credentials -> Create Credentials -> OAuth Client ID
+4. Then create OAuth 2.0 Client IDs for Android, IOS and others seperately
+---------------------------
+Android:
+- Package name is in: [project/android/build.gradle > defaultConfig {applicationId "com.example.docsclone"} ]
+- Download the JSON file and put it in the android folder [android/app/]
+---------------------------
+IOS:
+- Open the IOS folder of the Flutter app with XCode
+- Package name is in the Runner -> Identity -> Bundle Identifier
+---------------------------
+- This is the command to create the SHA1 key.
+- Source -> https://stackoverflow.com/questions/15727912/sha-1-fingerprint-of-keystore-certificate
+- Output:
+[ ~/Projects/Virglorious/DocsClone/app/docsclone ] >>> keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
+Alias name: androiddebugkey
+Creation date: 17 Sep 2023
+Entry type: PrivateKeyEntry
+Certificate chain length: 1
+Certificate[1]:
+Owner: C=US, O=Android, CN=Android Debug
+Issuer: C=US, O=Android, CN=Android Debug
+Serial number: 1
+Valid from: Sun Sep 17 20:15:54 IST 2023 until: Tue Sep 09 20:15:54 IST 2053
+Certificate fingerprints:
+         SHA1: 9D:BF:83:91:86:91:60:BA:4C:9C:B9:AF:63:02:C4:E3:B3:D5:F5:8B
+         SHA256: 86:8C:CA:6F:F5:67:1A:0B:9F:22:B4:6B:73:86:7A:48:77:46:E7:28:E7:09:CA:BC:17:4F:44:91:B9:92:7F:01
+Signature algorithm name: SHA1withRSA (weak)
+Subject Public Key Algorithm: 2048-bit RSA key
+Version: 1
+
+Warning:
+The certificate uses the SHA1withRSA signature algorithm which is considered a security risk. This algorithm will be disabled in a future update.
+---------------------------
